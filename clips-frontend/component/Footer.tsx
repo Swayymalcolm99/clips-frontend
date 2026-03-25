@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { YouTubeIcon } from "@/components/icons/YouTubeIcon";
+import { TwitchIcon } from "@/components/icons/TwitchIcon";
+import { TikTokIcon } from "@/components/icons/TikTokIcon";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 
 type PlatformItem = {
   label: string;
+  icon: React.FC<{ className?: string; "aria-hidden"?: boolean }>;
   href: string;
 };
 
@@ -12,10 +17,10 @@ type LegalItem = {
 };
 
 const PLATFORM_ITEMS: PlatformItem[] = [
-  { label: "YOUTUBE", href: "#" },
-  { label: "TWITCH", href: "#" },
-  { label: "TIKTOK", href: "#" },
-  { label: "INSTA", href: "#" },
+  { label: "YouTube", icon: YouTubeIcon, href: "#" },
+  { label: "Twitch", icon: TwitchIcon, href: "#" },
+  { label: "TikTok", icon: TikTokIcon, href: "#" },
+  { label: "Instagram", icon: InstagramIcon, href: "#" },
 ];
 
 const LEGAL_ITEMS: LegalItem[] = [
@@ -56,13 +61,10 @@ export default function Footer() {
             <Link
               key={item.label}
               href={item.href}
-              className={[
-                "text-xs font-semibold tracking-widest",
-                "text-white/30 hover:text-[#00C27C]",
-                "transition-colors duration-200",
-              ].join(" ")}
+              aria-label={item.label}
+              className="grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             >
-              {item.label}
+              <item.icon aria-hidden />
             </Link>
           ))}
         </nav>
