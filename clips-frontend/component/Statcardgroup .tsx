@@ -52,9 +52,11 @@ function PlatformsIcon() {
   );
 }
 
-// ─── Group ────────────────────────────────────────────────────────────────────
-
 export default function StatCardGroup() {
+  const { data, loading } = useDashboardData();
+
+  const stats = data?.stats;
+
   return (
     <>
       <StatCard
@@ -66,6 +68,7 @@ export default function StatCardGroup() {
         icon={<ClipsIcon />}
         iconColor="#00C27C"
         className="bento-stat-card"
+        loading={loading}
       />
       <StatCard
         index={1}
@@ -91,6 +94,7 @@ export default function StatCardGroup() {
         }
         iconColor="#3B82F6"
         className="bento-stat-card"
+        loading={loading}
       />
       <StatCard
         index={2}
@@ -122,6 +126,7 @@ export default function StatCardGroup() {
         }
         iconColor="#FCD34D"
         className="bento-stat-card"
+        loading={loading}
       />
     </>
   );
