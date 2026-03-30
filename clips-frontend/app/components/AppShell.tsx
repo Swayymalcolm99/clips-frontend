@@ -15,12 +15,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <TopNav
-        user={{
-          name: "Jane Doe",
-          avatarUrl: "https://randomuser.me/api/portraits/women/2.jpg",
-        }}
-      />
+      <TopNav />
       <main>{children}</main>
       <Footer />
     </>
